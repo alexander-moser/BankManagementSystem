@@ -13,6 +13,10 @@ public class Client extends Person {
         setAccountManager(accountManager);
     }
 
+    public Client() {
+
+    }
+
     public void setClientID(int clientID) {
         this.clientID = clientID;
     }
