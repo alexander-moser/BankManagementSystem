@@ -7,9 +7,21 @@ public class Client extends Person {
     private AccountManager accountManager;
 
     public Client(String name, String surname, Date birthday, Address address, int clientID, ArrayList<Account> accounts, AccountManager accountManager) {
-        super(name, surname, birthday, address);
+        super(name, surname, address);
+        setClientID(clientID);
+        setAccounts(accounts);
+        setAccountManager(accountManager);
+    }
+
+    public void setClientID(int clientID) {
         this.clientID = clientID;
+    }
+
+    public void setAccounts(ArrayList<Account> accounts) {
         this.accounts = accounts;
+    }
+
+    public void setAccountManager(AccountManager accountManager) {
         this.accountManager = accountManager;
     }
 

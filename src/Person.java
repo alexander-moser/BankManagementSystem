@@ -1,15 +1,26 @@
-import java.util.Date;
-
 public class Person {
-    private final String name;
+    private String name;
     private String surname;
-    private final Date birthday;
     private Address address;
 
-    public Person(String name, String surname, Date birthday, Address address) {
+    public Person(String name, String surname, Address address) {
+        setName(name);
+        setSurname(surname);
+        setAddress(address);
+    }
+
+    public Person() {
+    }
+
+    public void setName(String name) {
         this.name = name;
+    }
+
+    public void setSurname(String surname) {
         this.surname = surname;
-        this.birthday = birthday;
+    }
+
+    public void setAddress(Address address) {
         this.address = address;
     }
 
@@ -19,10 +30,6 @@ public class Person {
 
     public String getSurname() {
         return surname;
-    }
-
-    public Date getBirthday() {
-        return birthday;
     }
 
     public Address getAddress() {
