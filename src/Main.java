@@ -27,7 +27,8 @@ public class Main {
                     "5: Deposit Money\n" +
                     "6: Withdraw Money\n" +
                     "7: Open another account\n" +
-                    "8: Close application");
+                    "8: Check Balance\n" +
+                    "9: Close application");
 
 
             int input = Integer.parseInt(scanner.next());
@@ -169,15 +170,29 @@ public class Main {
                     System.out.print("Client ID: ");
                     Client client = listClient.get(Integer.parseInt(scanner.next()) - 1);
 
+                    ArrayList<Account> accounts = client.getAccounts();
+
                     Account account = new Account(client.getAccounts().size() + 1, 0);
 
                     System.out.println("Account has been initialized with ID "
                             + account.getAccountNumber()
                             + " and Balance "
                             + account.getBalance());
+
+                    accounts.add(account);
+                    client.setAccounts(accounts);
                 }
 
-                case 8 -> on = false;
+                case 8 -> {
+                    System.out.print("Client ID: ");
+                    Client client = listClient.get(Integer.parseInt(scanner.next()) - 1);
+                    System.out.print("Account ID: ");
+                    Account account = client.getAccounts().get(Integer.parseInt(scanner.next()) - 1);
+
+                    System.out.println("Balance: " + account.getBalance());
+                }
+
+                case 9 -> on = false;
 
                 default -> System.out.println("Enter a valid operation");
             }
